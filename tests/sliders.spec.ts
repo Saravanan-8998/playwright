@@ -1,5 +1,5 @@
 import { expect, test, Page } from "@playwright/test";
-import { JavaScriptSlider } from "../pageObjects/javaScript_sliders";
+import { Slider } from "../pageObjects/sliders";
 import allURL from "../URLs/allURL.json";
 import subURL from "../URLs/subURL.json";
 
@@ -10,25 +10,25 @@ test.use({
 });
 
 test.describe('Should check slider function in automatenow sandbox', async () => {
-    let javaScriptSlider: JavaScriptSlider;
+    let slider: Slider;
 
     test.beforeAll(async ({ browser }) => {
         page = await browser.newPage();
         await page.goto(subURL.sliders);
-        javaScriptSlider = new JavaScriptSlider(page);
+        slider = new Slider(page);
     });
 
     test('should able to slide and check the target slided count', async ({ page }) => {
-        let slider = await javaScriptSlider.getSlider();
+        let sliderData   = await slider.getSlider();
         let targetSlider = "25";
         let ifDone = false;
         if (slider) {
             while (!ifDone) {
-                let sliderBoundingBox = await slider.boundingBox();
-                if (sliderBoundingBox) {
-                    await page.mouse.move(sliderBoundingBox.x + sliderBoundingBox.width / 2, sliderBoundingBox.y + sliderBoundingBox.height / 2);
+                let sliderDimentions = await sliderData.boundingBox();
+                if (sliderDimentions) {
+                    await page.mouse.move(sliderDimentions.x + sliderDimentions.width / 2, sliderDimentions.y + sliderDimentions.height / 2);
                     await page.mouse.down();
-                    await page.mouse.move(sliderBoundingBox.x + 567, sliderBoundingBox.y + sliderBoundingBox.height / 2);
+                    await page.mouse.move(sliderDimentions.x + 567, sliderDimentions.y + sliderDimentions.height / 2);
                     await page.mouse.up();
                     if (targetSlider) {
                         ifDone = true;
@@ -36,7 +36,7 @@ test.describe('Should check slider function in automatenow sandbox', async () =>
                 }
             }
             await page.waitForTimeout(5000);
-            let value = await javaScriptSlider.getSliderValue();
+            let value = await slider.getSliderValue();
             expect(value).toContain("25");
         }
     });

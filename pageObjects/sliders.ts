@@ -1,6 +1,6 @@
 import { Locator, Page } from "@playwright/test";
 
-export class JavaScriptSlider {
+export class Slider {
     readonly page:Page;
     readonly sliderRange: string;
     readonly sliderId: string;

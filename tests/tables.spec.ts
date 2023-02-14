@@ -1,11 +1,11 @@
 import { expect, test, Page } from "@playwright/test";
-import { JavaScriptTables } from "../pageObjects/javaScript_tables";
+import { Tables } from "../pageObjects/tables";
 import allURL from "../URLs/allURL.json";
 import subURL from "../URLs/subURL.json";
 import { Constants } from "../constants/constants";
 
 let page: Page;
-let javascriptTable: JavaScriptTables;
+let table: Tables;
 
 test.use({
     baseURL: allURL.mainURL
@@ -23,29 +23,29 @@ test.describe('Should check all table functionality in automatenow sandbox', asy
     test.beforeAll(async ({ browser }) => {
         page = await browser.newPage();
         await page.goto(subURL.tables);
-        javascriptTable = new JavaScriptTables(page);
+        table = new Tables(page);
     });
 
     test('Should check the show entries as per the dropdown selection', async () => {
-        let defaultValue = await javascriptTable.getValue();
+        let defaultValue = await table.getValue();
         expect(defaultValue).toBe(Constants.tableAssertion1);
-        await javascriptTable.selectOption(dynamicValues.totalTableValue2);
-        let currentValue = await javascriptTable.getValue();
+        await table.selectOption(dynamicValues.totalTableValue2);
+        let currentValue = await table.getValue();
         expect(currentValue).toBe(Constants.tableAssertion2);
     });
 
     test('Should check the value from the table as per the dropdown selection', async () => {
-        let accendingValue = await javascriptTable.accendingAssertion();
+        let accendingValue = await table.accendingAssertion();
         expect(accendingValue).toBe(Constants.assertionValue);
-        let descendingValue = await javascriptTable.descendingAssertion();
+        let descendingValue = await table.descendingAssertion();
         expect(descendingValue).toBe(Constants.assertionValue1);
     });
 
     test('Should search a value from search and check that value listed below', async () => {
-        await javascriptTable.scrollDown();
-        await javascriptTable.clickSearchBtn();
-        await javascriptTable.enterSearch(Constants.searchValue);
-        const tableRows = await javascriptTable.searchByValue(Constants.searchValue);
+        await table.scrollDown();
+        await table.clickSearchBtn();
+        await table.enterSearch(Constants.searchValue);
+        const tableRows = await table.searchByValue(Constants.searchValue);
         for await (const tableRow of tableRows) {
             let allRowData = await tableRow.innerText();
             expect(allRowData).toContain(Constants.searchValueAssertion);

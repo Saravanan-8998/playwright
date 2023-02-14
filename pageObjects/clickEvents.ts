@@ -1,6 +1,6 @@
 import { Locator, Page } from "@playwright/test";
 
-export class JavaScriptClickEvents {
+export class ClickEvents {
     readonly page: Page;
     readonly obj1: string;
     readonly obj2: string;

@@ -1,5 +1,5 @@
 import { expect, test, Page } from "@playwright/test";
-import JavaScriptAds from "../pageObjects/javaScript_ads";
+import Ads from "../pageObjects/ads";
 import allURL from "../URLs/allURL.json";
 import subURL from "../URLs/subURL.json";
 import { Constants } from "../constants/constants";
@@ -11,19 +11,19 @@ test.use({
 });
 
 test.describe('Should check javascript ads in automatenow sandbox', async () => {
-    let javascriptAds: JavaScriptAds;
+    let ads: Ads;
 
     test.beforeAll(async ({ browser }) => {
         page = await browser.newPage();
         await page.goto(subURL.ads);
-        javascriptAds = new JavaScriptAds(page);
+        ads = new Ads(page);
     });
 
     test('Should wait for the Ads to load and verify the add content', async () => {
         await page.waitForTimeout(6000);
-        let textValue = await javascriptAds.textValue();
+        let textValue = await ads.textValue();
         expect(textValue).toBe(Constants.adsAssertion);
-        await javascriptAds.closeDiv();
+        await ads.closeDiv();
     });
 
     test.afterAll(async () => {

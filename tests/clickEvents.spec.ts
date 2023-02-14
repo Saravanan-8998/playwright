@@ -1,5 +1,5 @@
 import { expect, test, Page } from "@playwright/test";
-import { JavaScriptClickEvents } from "../pageObjects/javaScript_clickEvents";
+import { ClickEvents } from "../pageObjects/clickEvents";
 import allURL from "../URLs/allURL.json";
 import subURL from "../URLs/subURL.json";
 
@@ -18,12 +18,12 @@ enum assertValues {
 }
 
 test.describe('Should check javascript clickEvents in automatenow sandbox', async () => {
-    let javascriptclickEvents: JavaScriptClickEvents;
+    let clickEvents: ClickEvents;
 
     test.beforeAll(async ({ browser }) => {
         page = await browser.newPage();
         await page.goto(subURL.clickEvents);
-        javascriptclickEvents = new JavaScriptClickEvents(page);
+        clickEvents = new ClickEvents(page);
     });
 
     test('Should check click events for different objects', async () => {
@@ -31,20 +31,20 @@ test.describe('Should check javascript clickEvents in automatenow sandbox', asyn
         for (let value of userObject) {
             switch (value) {
                 case 1:
-                    await javascriptclickEvents.clickObj(value);
-                    expect(await javascriptclickEvents.getValue()).toBe(assertValues.obj1);
+                    await clickEvents.clickObj(value);
+                    expect(await clickEvents.getValue()).toBe(assertValues.obj1);
                     break;
                 case 2:
-                    await javascriptclickEvents.clickObj(value);
-                    expect(await javascriptclickEvents.getValue()).toBe(assertValues.obj2);
+                    await clickEvents.clickObj(value);
+                    expect(await clickEvents.getValue()).toBe(assertValues.obj2);
                     break;
                 case 3:
-                    await javascriptclickEvents.clickObj(value);
-                    expect(await javascriptclickEvents.getValue()).toBe(assertValues.obj3);
+                    await clickEvents.clickObj(value);
+                    expect(await clickEvents.getValue()).toBe(assertValues.obj3);
                     break;
                 case 4:
-                    await javascriptclickEvents.clickObj(value);
-                    expect(await javascriptclickEvents.getValue()).toBe(assertValues.obj4);
+                    await clickEvents.clickObj(value);
+                    expect(await clickEvents.getValue()).toBe(assertValues.obj4);
                     break;
                 default:
                     console.log("None of the objects are selected");

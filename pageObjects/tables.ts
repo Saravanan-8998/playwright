@@ -1,6 +1,6 @@
 import { Locator, Page } from "@playwright/test";
 
-export class JavaScriptTables {
+export class Tables {
     readonly page: Page;
     readonly currentValue: string;
     readonly defaultRankValue: string;
