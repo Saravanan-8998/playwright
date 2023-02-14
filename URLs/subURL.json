@@ -4,5 +4,6 @@
     "sliders" : "/slider/",
     "tables" : "/tables/",
     "clickEvents" : "/click-events/",
-    "formFields" : "/form-fields/"
+    "formFields" : "/form-fields/",
+    "calender" : "/calendars/"
 }
