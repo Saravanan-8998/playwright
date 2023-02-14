@@ -2,7 +2,7 @@ import { expect, test, Page } from "@playwright/test";
 import JavaScriptDelays from "../pageObjects/javaScript_delays";
 import allURL from "../URLs/allURL.json";
 import subURL from "../URLs/subURL.json";
-import hardCode from "../allAssertions/hardCodeAssertions.json";
+import { Constants } from "../constants/constants";
 
 let page: Page;
 
@@ -23,7 +23,7 @@ test.describe('Should check javascript delay in automatenow sandbox', async () =
         await javascriptDelay.clickOnStart();
         await page.waitForTimeout(10000);
         const textValue = await javascriptDelay.textValue();
-        expect(textValue).toBe(hardCode.value1);
+        expect(textValue).toBe(Constants.delayVerification);
     });
 
     test.afterAll(async () => {

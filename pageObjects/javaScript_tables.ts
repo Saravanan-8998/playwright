@@ -55,4 +55,8 @@ export class JavaScriptTables {
     async scrollDown() {
         await this.page.locator(this.scrollId).scrollIntoViewIfNeeded();
     }
+
+    async searchByValue(value: any){
+        return await this.page.$$(`tr:has-text('${value}')`);
+    }
 }

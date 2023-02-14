@@ -2,7 +2,7 @@ import { expect, test, Page } from "@playwright/test";
 import JavaScriptAds from "../pageObjects/javaScript_ads";
 import allURL from "../URLs/allURL.json";
 import subURL from "../URLs/subURL.json";
-import hardCode from "../allAssertions/hardCodeAssertions.json";
+import { Constants } from "../constants/constants";
 
 let page: Page;
 
@@ -22,7 +22,7 @@ test.describe('Should check javascript ads in automatenow sandbox', async () => 
     test('Should wait for the Ads to load and verify the add content', async () => {
         await page.waitForTimeout(6000);
         let textValue = await javascriptAds.textValue();
-        expect(textValue).toBe(hardCode.value7);
+        expect(textValue).toBe(Constants.adsAssertion);
         await javascriptAds.closeDiv();
     });
 
