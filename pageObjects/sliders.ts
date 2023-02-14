@@ -14,6 +14,7 @@ export class Slider {
     async getSlider() {
         return this.page.locator(this.sliderRange);
     }
+
     async getSliderValue() {
         let sliderValue = await this.page.locator(this.sliderId).innerText();
         return sliderValue;
