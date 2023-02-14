@@ -3,5 +3,6 @@
     "delays" : "/javascript-delays/",
     "sliders" : "/slider/",
     "tables" : "/tables/",
-    "clickEvents" : "/click-events/"
+    "clickEvents" : "/click-events/",
+    "formFields" : "/form-fields/"
 }

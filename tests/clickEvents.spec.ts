@@ -27,6 +27,7 @@ test.describe('Should check javascript clickEvents in automatenow sandbox', asyn
     });
 
     test('Should check click events for different objects', async () => {
+        await expect(page).toHaveURL(/.*click-events/);
         userObject = [1, 2, 3, 4];
         for (let value of userObject) {
             switch (value) {

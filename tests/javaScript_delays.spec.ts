@@ -20,6 +20,7 @@ test.describe('Should check javascript delay in automatenow sandbox', async () =
     });
 
     test('should click the start and wait for the delay time', async () => {
+        await expect(page).toHaveURL(/.*javascript-delays/);
         await javascriptDelay.clickOnStart();
         await page.waitForTimeout(10000);
         const textValue = await javascriptDelay.textValue();
