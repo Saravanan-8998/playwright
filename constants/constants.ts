@@ -1,4 +1,5 @@
 export class Constants {
+    public static baseURL : string = "https://automatenow.io/sandbox-automation-testing-practice-website";
     public static delayVerification: string = "Liftoff!";
     public static targetSlider: string = "51";
     public static tableAssertion1: string = "Showing 1 to 10 of 25 entries";
@@ -15,4 +16,6 @@ export class Constants {
     public static dropDownValue : string = "No";
     public static emailValue : string = "sarf@gmail.com";
     public static messageValue : string = "Testing";
+    public static searchText : string = "Typescript";
+    public static searchText1 : string = "Playwright";
 }
