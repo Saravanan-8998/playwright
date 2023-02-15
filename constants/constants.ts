@@ -18,4 +18,6 @@ export class Constants {
     public static messageValue : string = "Testing";
     public static searchText : string = "Typescript";
     public static searchText1 : string = "Playwright";
+    public static statusCode200 : any = 200;
+    public static statusCode400 : any = 400;
 }
