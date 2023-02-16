@@ -7,5 +7,6 @@
     "formFields" : "/form-fields/",
     "calender" : "/calendars/",
     "window_handling" : "/window-operations/",
-    "broken_images" : "/broken-images/"
+    "broken_images" : "/broken-images/",
+    "spinners" : "/spinners/"
 }

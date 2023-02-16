@@ -21,4 +21,5 @@ export class Constants {
     public static statusCode200 : any = 200;
     public static statusCode400 : any = 400;
     public static JavaScriptLogo : any = "JavaScript Logo";
+    public static spinnerText: any = "This page shows a spinner on page load.";
 }
