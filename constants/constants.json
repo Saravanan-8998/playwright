@@ -22,6 +22,13 @@
     "statusCode400" : 400,
     "JavaScriptLogo" : "JavaScript Logo",
     "spinnerText": "This page shows a spinner on page load.",
-    "date": "13"
+    "date": "13",
+    "alertMsg": "Hi there, pal!",
+    "alertConfirmMsg": "OK or Cancel, which will it be?",
+    "afterAcceptMsg": "OK it is!",
+    "afterDeclineMsg": "Cancel it is!",
+    "alertPromptMsg": "Hi there, what's your name?",
+    "afterPromptDeclineMsg": "Fine, be that way...",
+    "tooltipMsg": "Cool text"
 }
     

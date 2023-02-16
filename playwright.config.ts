@@ -6,16 +6,16 @@ export default defineConfig({
   expect: {
     timeout: 5000
   },
-  fullyParallel: false,
+  fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : 4,
   reporter: 'html',
   use: {
+    baseURL: 'https://automatenow.io',
     actionTimeout: 30000,
     trace: 'on-first-retry',
   },
-
   projects: [
     {
       name: 'chromium',

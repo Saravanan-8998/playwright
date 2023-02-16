@@ -1,38 +1,38 @@
 import { expect, test, Page } from "@playwright/test";
-import { Tables } from "../pageObjects/tables";
-import allURL from "../URLs/allURL.json";
+import { Popups } from "../pageObjects/popup";
 import subURL from "../URLs/subURL.json";
 import Constants from "../constants/constants.json";
 
 let page: Page;
-let table: Tables;
+let popups: Popups;
 
-test.use({
-    baseURL: allURL.mainURL
+test.beforeAll(async ({ browser }) => {
+    page = await browser.newPage();
+    await page.goto(subURL.popup);
+    popups = new Popups(page);
 });
 
 test.describe('Should check all popup functionality in automatenow sandbox', async () => {
 
-    test.beforeAll(async ({ browser }) => {
-        page = await browser.newPage();
-        await page.goto(subURL.popup);
-        table = new Tables(page);
-    });
-
     test('Should check alert popup functionality', async () => {
-        
+        await popups.alertAccept();
+        await popups.alertMsg();
     });
 
     test('Should check confirm popup functionality', async () => {
-        
+        await popups.alertConfirmAccept();
+        await popups.alertConfirmMsg();
+        await popups.alertConfirmDecline();
     });
 
     test('Should check prompt popup functionality', async () => {
-        
+        await popups.alertPromptAccept();
+        await popups.alertPromptMsg();
+        await popups.alertPromptDecline();
     });
 
     test('Should check tooltip functionality', async () => {
-        
+        await popups.toolTip();
     });
 
     test.afterAll(async () => {
