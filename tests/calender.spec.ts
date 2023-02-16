@@ -3,6 +3,7 @@ import { Calender } from "../pageObjects/calender";
 import allURL from "../URLs/allURL.json";
 import subURL from "../URLs/subURL.json";
 import moment from "moment";
+import Constants from "../constants/constants.json"
 
 let page: Page;
 let calender: Calender;
@@ -21,9 +22,11 @@ test.describe('should check valid date in automatenow sandbox', async () => {
     });
 
     test('Should check for a valid date of a calendar', async () => {
-        await calender.datePickerFunction(inputDate);
-        await calender.submit();
+        await calender.manualDateEnter(inputDate);
         expect(await calender.datePickerValidation()).toContain(inputDate);
+        await page.goto(allURL.mainURL + subURL.calender);
+        await calender.manualDateClick(Constants.date);
+        expect(await calender.datePickerValidation()).toContain(Constants.date);
     });
 
     test.afterAll(async () => {

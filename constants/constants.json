@@ -21,6 +21,7 @@
     "statusCode200" : 200,
     "statusCode400" : 400,
     "JavaScriptLogo" : "JavaScript Logo",
-    "spinnerText": "This page shows a spinner on page load."
+    "spinnerText": "This page shows a spinner on page load.",
+    "date": "13"
 }
     
