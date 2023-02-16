@@ -8,5 +8,6 @@
     "calender" : "/calendars/",
     "window_handling" : "/window-operations/",
     "broken_images" : "/broken-images/",
-    "spinners" : "/spinners/"
+    "spinners" : "/spinners/",
+    "popup" : "/popups/"
 }

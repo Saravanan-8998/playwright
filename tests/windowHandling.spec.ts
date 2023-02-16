@@ -2,7 +2,7 @@ import { chromium, expect, test, Page } from "@playwright/test";
 import { WindowHandling } from "../pageObjects/windowHandling";
 import allURL from "../URLs/allURL.json";
 import subURL from "../URLs/subURL.json";
-import { Constants } from "../constants/constants";
+import Constants from "../constants/constants.json";
 
 let page: Page;
 let browser: any, context: any;

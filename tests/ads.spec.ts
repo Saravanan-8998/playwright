@@ -2,7 +2,7 @@ import { expect, test, Page } from "@playwright/test";
 import Ads from "../pageObjects/ads";
 import allURL from "../URLs/allURL.json";
 import subURL from "../URLs/subURL.json";
-import { Constants } from "../constants/constants";
+import Constants from "../constants/constants.json";
 
 let page: Page;
 

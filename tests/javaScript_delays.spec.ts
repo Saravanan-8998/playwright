@@ -2,13 +2,13 @@ import { expect, test, Page } from "@playwright/test";
 import JavaScriptDelays from "../pageObjects/javaScript_delays";
 import allURL from "../URLs/allURL.json";
 import subURL from "../URLs/subURL.json";
-import { Constants } from "../constants/constants";
+import Constants from "../constants/constants.json";
 
 let page: Page;
 
-test.use({
-    baseURL: allURL.mainURL
-});
+// test.use({
+//     baseURL: allURL.mainURL
+// });
 
 test.describe('Should check javascript delay in automatenow sandbox', async () => {
     let javascriptDelay: JavaScriptDelays;

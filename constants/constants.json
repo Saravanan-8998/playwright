@@ -1,0 +1,26 @@
+{
+    "baseURL" : "https://automatenow.io/sandbox-automation-testing-practice-website",
+    "delayVerification": "Liftoff!",
+    "targetSlider": "51",
+    "tableAssertion1": "Showing 1 to 10 of 25 entries",
+    "tableAssertion2": "Showing 1 to 25 of 25 entries",
+    "assertionValue": "25",
+    "assertionValue1": "1",
+    "searchValue": "ind",
+    "searchValueAssertion": "Ind",
+    "adsAssertion": "I am an ad that displays automatically after some time when you visit this page.",
+    "headerValue": "Your message has been sent",
+    "nameValue" : "Saravanan",
+    "checkBoxValue" : "Water",
+    "radioValue" : "Green",
+    "dropDownValue" : "No",
+    "emailValue" : "sarf@gmail.com",
+    "messageValue" : "Testing",
+    "searchText" : "Typescript",
+    "searchText1" : "Playwright",
+    "statusCode200" : 200,
+    "statusCode400" : 400,
+    "JavaScriptLogo" : "JavaScript Logo",
+    "spinnerText": "This page shows a spinner on page load."
+}
+    
