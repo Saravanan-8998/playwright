@@ -2,6 +2,7 @@ import { expect, test, Page } from "@playwright/test";
 import { Slider } from "../pageObjects/sliders";
 import allURL from "../URLs/allURL.json";
 import subURL from "../URLs/subURL.json";
+import Constants from "../constants/constants.json"
 
 let page: Page;
 
@@ -19,26 +20,10 @@ test.describe('Should check slider function in automatenow sandbox', async () =>
     });
 
     test('should able to slide and check the target slided count', async ({ page }) => {
-        let sliderData   = await slider.getSlider();
-        let targetSlider = "25";
-        let ifDone = false;
-        if (slider) {
-            while (!ifDone) {
-                let sliderDimentions = await sliderData.boundingBox();
-                if (sliderDimentions) {
-                    await page.mouse.move(sliderDimentions.x + sliderDimentions.width / 2, sliderDimentions.y + sliderDimentions.height / 2);
-                    await page.mouse.down();
-                    await page.mouse.move(sliderDimentions.x + 567, sliderDimentions.y + sliderDimentions.height / 2);
-                    await page.mouse.up();
-                    if (targetSlider) {
-                        ifDone = true;
-                    }
-                }
-            }
-            await page.waitForTimeout(5000);
-            let value = await slider.getSliderValue();
-            expect(value).toContain("25");
-        }
+        let sliderData = await slider.getSlider();
+        let movedValue = await slider.moveSlider(Constants.targetSlider, sliderData);
+        let currentSliderValue = await slider.getSliderValue();
+        expect(movedValue).toContain(currentSliderValue);
     });
 
     test.afterAll(async () => {
