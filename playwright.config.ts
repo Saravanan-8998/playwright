@@ -13,6 +13,10 @@ export default defineConfig({
   reporter: 'html',
   use: {
     baseURL: 'https://automatenow.io',
+    headless: true,
+    viewport: { width: 1280, height: 720 },
+    ignoreHTTPSErrors: true,
+    screenshot: 'only-on-failure',
     actionTimeout: 30000,
     trace: 'on-first-retry',
   },
