@@ -1,12 +1,7 @@
 import { Locator, Page } from "@playwright/test";
 
 export class ClickEvents {
-    readonly page: Page;
-    readonly obj1: string;
-    readonly obj2: string;
-    readonly obj3: string;
-    readonly obj4: string;
-    readonly valueLoc: string;
+    readonly page: Page; obj1: string; obj2: string; obj3: string; obj4: string; valueLoc: string;
 
     constructor(page: Page) {
         this.page = page;

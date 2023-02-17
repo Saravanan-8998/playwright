@@ -1,24 +1,23 @@
 import { chromium, expect, test, Page } from "@playwright/test";
 import { WindowHandling } from "../pageObjects/windowHandling";
-import allURL from "../URLs/allURL.json";
-import subURL from "../URLs/subURL.json";
-import Constants from "../constants/constants.json";
+import subURL from "../support/subURL.json";
+import Constants from "../support/constants.json";
 
 let page: Page;
 let browser: any, context: any;
 let windowHandling: WindowHandling;
 let searchLocator: string = `input[name='q']`;
 
-test.beforeAll(async () => {
-    browser = await chromium.launch();
-    context = await browser.newContext();
-    page = await context.newPage();
-    await page.goto(allURL.mainURL + subURL.window_handling);
-    await page.waitForTimeout(10000);
-    windowHandling = new WindowHandling(page);
-});
-
 test.describe('Should check all Window Handling functionality in automatenow sandbox', async () => {
+
+    test.beforeAll(async () => {
+        browser = await chromium.launch();
+        context = await browser.newContext();
+        page = await context.newPage();
+        await page.goto(subURL.window_handling);
+        await page.waitForTimeout(10000);
+        windowHandling = new WindowHandling(page);
+    });
 
     test('Should check the new tab functionality', async () => {
         await windowHandling.clickNewTab();

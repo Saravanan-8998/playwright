@@ -1,14 +1,7 @@
 import { Locator, Page } from "@playwright/test";
 
 export class Tables {
-    readonly page: Page;
-    readonly currentValue: string;
-    readonly defaultRankValue: string;
-    readonly defaultSort: string;
-    readonly ascSort: string;
-    readonly descSort: string;
-    readonly searchLoc: string;
-    readonly scrollId: string;
+    readonly page: Page; currentValue: string; defaultRankValue: string; defaultSort: string; ascSort: string; descSort: string; searchLoc: string; scrollId: string;
 
     constructor(page: Page) {
         this.page = page;

@@ -7,8 +7,7 @@ export default class JavaScriptDelays {
         this.page = page;
     }
 
-    //make this genric
-    async clickOnStart(): Promise<void> {
+    async clickOnStart() {
         return await this.page.getByRole('button', { name: 'Start' }).click();
     }
 

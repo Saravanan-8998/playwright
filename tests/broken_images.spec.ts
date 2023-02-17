@@ -1,14 +1,9 @@
 import { expect, test, Page } from "@playwright/test";
 import { BrokenImages } from "../pageObjects/broken_images";
-import allURL from "../URLs/allURL.json";
-import subURL from "../URLs/subURL.json";
+import subURL from "../support/subURL.json";
 
 let page: Page;
 let broken_images: BrokenImages;
-
-test.use({
-    baseURL: allURL.mainURL
-});
 
 test.describe('Should check all broken_images functionality in automatenow sandbox', async () => {
 

@@ -1,18 +1,17 @@
 import { expect, test, Page } from "@playwright/test";
 import { Popups } from "../pageObjects/popup";
-import subURL from "../URLs/subURL.json";
-import Constants from "../constants/constants.json";
+import subURL from "../support/subURL.json";
 
 let page: Page;
 let popups: Popups;
 
-test.beforeAll(async ({ browser }) => {
-    page = await browser.newPage();
-    await page.goto(subURL.popup);
-    popups = new Popups(page);
-});
-
 test.describe('Should check all popup functionality in automatenow sandbox', async () => {
+
+    test.beforeAll(async ({ browser }) => {
+        page = await browser.newPage();
+        await page.goto(subURL.popup);
+        popups = new Popups(page);
+    });
 
     test('Should check alert popup functionality', async () => {
         await popups.alertAccept();

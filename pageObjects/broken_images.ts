@@ -1,5 +1,5 @@
 import { Page, expect, request, APIRequestContext } from "@playwright/test";
-import Constants from "../constants/constants.json";
+import Constants from "../support/constants.json";
 
 export class BrokenImages {
     readonly page: Page; imgLoc: string; image1: any; image2: any; image3: any; imageURL1: any; imageURL2: any; imageURL3: any;

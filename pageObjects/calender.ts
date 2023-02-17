@@ -1,11 +1,7 @@
 import { Locator, Page } from "@playwright/test";
 
 export class Calender {
-    readonly page: Page;
-    readonly datePickerLoc: string;
-    readonly datePickerValue: string;
-    readonly nextMonth: string;
-    readonly dateToSelect: any;
+    readonly page: Page; datePickerLoc: string; datePickerValue: string; nextMonth: string; dateToSelect: any;
 
     constructor(page: Page) {
         this.page = page;

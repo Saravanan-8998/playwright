@@ -1,9 +1,7 @@
 import { Locator, Page } from "@playwright/test";
 
 export class Spinners {
-    readonly page: Page;
-    readonly spinnerLoc: string;
-    readonly textLoc: string;
+    readonly page: Page; spinnerLoc: string; textLoc: string;
 
     constructor(page: Page) {
         this.page = page;

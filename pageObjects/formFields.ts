@@ -1,23 +1,7 @@
 import { Locator, Page } from "@playwright/test";
 
 export class FormFields {
-    readonly page: Page;
-    readonly nameLoc: string;
-    readonly nameInput: string;
-    readonly checkBoxLoc: string;
-    readonly radioLoc: string;
-    readonly dropDownLoc: string;
-    readonly emailLoc: string;
-    readonly messageLoc: string;
-    readonly dropDownYes: string;
-    readonly dropDownNo: string;
-    readonly headerValidation: string;
-    readonly nameValidation: string;
-    readonly checkBoxValidation: string;
-    readonly radioValidation: string;
-    readonly dropDownValidation: string;
-    readonly emailValidation: string;
-    readonly messageValidation: string;
+    readonly page: Page; nameLoc: string; nameInput: string; checkBoxLoc: string; radioLoc: string; dropDownLoc: string; emailLoc: string; messageLoc: string; dropDownYes: string; dropDownNo: string; headerValidation: string; nameValidation: string; checkBoxValidation: string; radioValidation: string; dropDownValidation: string; emailValidation: string; messageValidation: string;
 
     constructor(page: Page) {
         this.page = page;

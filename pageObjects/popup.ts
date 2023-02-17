@@ -1,12 +1,8 @@
 import { expect, Locator, Page } from "@playwright/test";
-import Constants from "../constants/constants.json";
+import Constants from "../support/constants.json";
 
 export class Popups {
-    readonly page: Page;
-    readonly confirmResult: string;
-    readonly promptResult: string;
-    readonly toolTipLoc: string;
-    readonly toolTipPopup: string;
+    readonly page: Page; confirmResult: string; promptResult: string; toolTipLoc: string; toolTipPopup: string;
 
     constructor(page: Page) {
         this.page = page;

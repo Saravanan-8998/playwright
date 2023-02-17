@@ -1,0 +1,13 @@
+{
+    "ads" : "/sandbox-automation-testing-practice-website/ads/",
+    "delays" : "/sandbox-automation-testing-practice-website/javascript-delays/",
+    "sliders" : "/sandbox-automation-testing-practice-website/slider/",
+    "tables" : "/sandbox-automation-testing-practice-website/tables/",
+    "clickEvents" : "/sandbox-automation-testing-practice-website/click-events/",
+    "formFields" : "/sandbox-automation-testing-practice-website/form-fields/",
+    "calender" : "/sandbox-automation-testing-practice-website/calendars/",
+    "window_handling" : "/sandbox-automation-testing-practice-website/window-operations/",
+    "broken_images" : "/sandbox-automation-testing-practice-website/broken-images/",
+    "spinners" : "/sandbox-automation-testing-practice-website/spinners/",
+    "popup" : "/sandbox-automation-testing-practice-website/popups/"
+}

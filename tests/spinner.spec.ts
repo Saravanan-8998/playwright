@@ -1,15 +1,10 @@
 import { expect, test, Page } from "@playwright/test";
 import { Spinners } from "../pageObjects/spinner";
-import allURL from "../URLs/allURL.json";
-import subURL from "../URLs/subURL.json";
-import Constants from "../constants/constants.json";
+import subURL from "../support/subURL.json";
+import Constants from "../support/constants.json";
 
 let page: Page;
 let spinner: Spinners;
-
-test.use({
-    baseURL: allURL.mainURL
-});
 
 test.describe('Should check all popup functionality in automatenow sandbox', async () => {
 

@@ -1,14 +1,9 @@
 import { expect, test, Page } from "@playwright/test";
 import { ClickEvents } from "../pageObjects/clickEvents";
-import allURL from "../URLs/allURL.json";
-import subURL from "../URLs/subURL.json";
+import subURL from "../support/subURL.json";
 
 let page: Page;
 let userObject: any = [];
-
-test.use({
-    baseURL: allURL.mainURL
-});
 
 enum assertValues {
     obj1 = "Meow!",

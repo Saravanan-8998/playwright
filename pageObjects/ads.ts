@@ -1,9 +1,7 @@
 import { Locator, Page } from "@playwright/test";
 
 export default class JavaScriptAds {
-    readonly page: Page;
-    readonly mainDiv: string;
-    readonly clsDiv: string;
+    readonly page: Page; mainDiv: string; clsDiv: string;
 
     constructor(page: Page) {
         this.page = page;

@@ -1,10 +1,7 @@
 import { Locator, Page } from "@playwright/test";
 
 export class WindowHandling {
-    readonly page: Page;
-    readonly tabcontainer: string;
-    readonly googlesearchbtn: string;
-    readonly replacebtn: string;
+    readonly page: Page; tabcontainer: string; googlesearchbtn: string; replacebtn: string;
 
     constructor(page: Page) {
         this.page = page;

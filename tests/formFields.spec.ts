@@ -1,15 +1,10 @@
 import { expect, test, Page } from "@playwright/test";
 import { FormFields } from "../pageObjects/formFields";
-import allURL from "../URLs/allURL.json";
-import subURL from "../URLs/subURL.json";
-import Constants from "../constants/constants.json";
+import subURL from "../support/subURL.json";
+import Constants from "../support/constants.json";
 
 let page: Page;
 let formFields: FormFields;
-
-test.use({
-    baseURL: allURL.mainURL
-});
 
 test.describe('Should check all form fields functionality in automatenow sandbox', async () => {
 

@@ -1,9 +1,7 @@
 import { Locator, Page } from "@playwright/test";
 
 export class Slider {
-    readonly page: Page;
-    readonly sliderRange: string;
-    readonly sliderId: string;
+    readonly page: Page; sliderRange: string; sliderId: string;
 
     constructor(page: Page) {
         this.page = page;
