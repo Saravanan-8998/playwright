@@ -19,6 +19,8 @@ test.describe('Should check all table functionality in automatenow sandbox', asy
         page = await browser.newPage();
         await page.goto(subURL.tables);
         table = new Tables(page);
+        const title = await page.title();
+        console.log(`Page title: ${title}`);
     });
 
     test('Should check the show entries as per the dropdown selection', async () => {

@@ -12,10 +12,13 @@ test.describe('Should check javascript ads in automatenow sandbox', async () => 
         page = await browser.newPage();
         await page.goto(subURL.ads);
         ads = new Ads(page);
+        const title = await page.title();
+        console.log(`Page title: ${title}`);
     });
 
     test('Should wait for the Ads to load and verify the add content', async () => {
         await expect(page).toHaveURL(/.*ads/);
+        await page.evaluateHandle(() => document.body);
         await page.waitForTimeout(6000);
         await ads.textValue();
         await ads.closeDiv();

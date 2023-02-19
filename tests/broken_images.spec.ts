@@ -11,6 +11,8 @@ test.describe('Should check all broken_images functionality in automatenow sandb
         page = await browser.newPage();
         await page.goto(subURL.broken_images);
         broken_images = new BrokenImages(page);
+        const title = await page.title();
+        console.log(`Page title: ${title}`);
     });
 
     test("Test to check for broken images", async ({ request }) => {

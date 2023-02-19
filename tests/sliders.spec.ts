@@ -12,6 +12,8 @@ test.describe('Should check slider function in automatenow sandbox', async () =>
         page = await browser.newPage();
         await page.goto(subURL.sliders);
         slider = new Slider(page);
+        const title = await page.title();
+        console.log(`Page title: ${title}`);
     });
 
     test('should able to slide and check the target slided count', async ({ page }) => {

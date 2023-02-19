@@ -11,6 +11,8 @@ test.describe('Should check all popup functionality in automatenow sandbox', asy
         page = await browser.newPage();
         await page.goto(subURL.popup);
         popups = new Popups(page);
+        const title = await page.title();
+        console.log(`Page title: ${title}`);
     });
 
     test('Should check alert popup functionality', async () => {

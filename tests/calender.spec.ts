@@ -12,6 +12,8 @@ test.beforeAll(async ({ browser }) => {
     page = await browser.newPage();
     await page.goto(subURL.calender);
     calender = new Calender(page);
+    const title = await page.title();
+    console.log(`Page title: ${title}`);
 });
 
 test.describe('should check valid date in automatenow sandbox', async () => {

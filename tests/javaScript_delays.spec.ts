@@ -11,6 +11,8 @@ test.describe('Should check javascript delay in automatenow sandbox', async () =
         page = await browser.newPage();
         await page.goto(subURL.delays);
         javascriptDelay = new JavaScriptDelays(page);
+        const title = await page.title();
+        console.log(`Page title: ${title}`);
     });
 
     test('should click the start and wait for the delay time', async () => {

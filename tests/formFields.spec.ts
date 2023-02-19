@@ -12,6 +12,8 @@ test.describe('Should check all form fields functionality in automatenow sandbox
         page = await browser.newPage();
         await page.goto(subURL.formFields);
         formFields = new FormFields(page);
+        const title = await page.title();
+        console.log(`Page title: ${title}`);
     });
 
     test('Should submit the form with valid data', async () => {

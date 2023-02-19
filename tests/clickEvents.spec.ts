@@ -12,6 +12,8 @@ test.describe('Should check javascript clickEvents in automatenow sandbox', asyn
         page = await browser.newPage();
         await page.goto(subURL.clickEvents);
         clickEvents = new ClickEvents(page);
+        const title = await page.title();
+        console.log(`Page title: ${title}`);
     });
 
     test('Should check click events for different objects', async () => {

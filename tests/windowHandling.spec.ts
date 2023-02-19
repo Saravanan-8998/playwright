@@ -17,6 +17,8 @@ test.describe('Should check all Window Handling functionality in automatenow san
         await page.goto(subURL.window_handling);
         await page.waitForTimeout(10000);
         windowHandling = new WindowHandling(page);
+        const title = await page.title();
+        console.log(`Page title: ${title}`);
     });
 
     test('Should check the new tab functionality', async () => {

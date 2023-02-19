@@ -12,6 +12,8 @@ test.describe('Should check all popup functionality in automatenow sandbox', asy
         page = await browser.newPage();
         await page.goto(subURL.spinners);
         spinner = new Spinners(page);
+        const title = await page.title();
+        console.log(`Page title: ${title}`);
     });
 
     test('Should wait for the spinner till the page loads', async () => {
