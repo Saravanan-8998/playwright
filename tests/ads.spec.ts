@@ -1,7 +1,7 @@
 import { expect, test, Page } from "@playwright/test";
 import Ads from "../pageObjects/ads";
 import subURL from "../support/subURL.json";
-import Constants from "../support/constants.json";
+import { myBrowserFixture } from "../support/fixtures";
 
 let page: Page;
 
