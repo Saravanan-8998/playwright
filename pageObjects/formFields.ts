@@ -1,5 +1,5 @@
 import { Locator, Page, expect } from "@playwright/test";
-import { click } from "../support/utils";
+import { click, rollFill, labelFill, check } from "../support/utils";
 import Constants from "../support/constants.json";
 
 export class FormFields {
@@ -28,8 +28,8 @@ export class FormFields {
     async nameInputFunction() {
         await this.page.waitForSelector(this.nameLoc);
         await this.page.waitForSelector(this.nameInput);
-        await this.page.getByLabel('Name(required)').isVisible();
-        await this.page.getByLabel('Name(required)').fill('Saravanan');
+        await check(this.page, 'Name(required)');
+        await labelFill(this.page, 'Name(required)', 'Saravanan');
     }
 
     async checkBoxInputFunction() {
@@ -80,13 +80,13 @@ export class FormFields {
     async emailFunction() {
         await this.page.waitForSelector(this.emailLoc);
         await click(this.page, 'textbox', 'Email');
-        await this.page.getByRole('textbox', { name: 'Email' }).fill('sarf@gmail.com');
+        await rollFill(this.page, 'textbox', 'Email', 'sarf@gmail.com');
     }
 
     async messageFunction() {
         await this.page.waitForSelector(this.messageLoc);
         await click(this.page, 'textbox', 'Message');
-        await this.page.getByRole('textbox', { name: 'Message' }).fill('Testing');
+        await rollFill(this.page, 'textbox', 'Message', 'Testing');
     }
 
     async submit() {

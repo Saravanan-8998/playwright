@@ -1,4 +1,5 @@
 import { Locator, Page } from "@playwright/test";
+import { rollSelect, labelClick, type } from "../support/utils";
 
 export class Tables {
     readonly page: Page; currentValue: string; defaultRankValue: string; defaultSort: string; ascSort: string; descSort: string; searchLoc: string; scrollId: string;
@@ -15,7 +16,7 @@ export class Tables {
     }
 
     async selectOption(value: any) {
-        return await this.page.getByRole('combobox', { name: 'Show entries' }).selectOption(value);
+        await rollSelect(this.page, 'combobox', 'Show entries', value);
     }
 
     async getValue() {
@@ -38,18 +39,18 @@ export class Tables {
     }
 
     async clickSearchBtn() {
-        await this.page.getByLabel(this.searchLoc).click();
+        await labelClick(this.page, this.searchLoc);
     }
 
     async enterSearch(searchText: string) {
-        await this.page.getByLabel(this.searchLoc).type(searchText);
+        await type(this.page, this.searchLoc, searchText);
     }
 
     async scrollDown() {
         await this.page.locator(this.scrollId).scrollIntoViewIfNeeded();
     }
 
-    async searchByValue(value: any){
+    async searchByValue(value: any) {
         return await this.page.$$(`tr:has-text('${value}')`);
     }
 }
