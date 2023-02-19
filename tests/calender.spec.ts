@@ -23,5 +23,4 @@ test.describe('should check valid date in automatenow sandbox', async () => {
         await calender.manualDateClick(Constants.date);
         expect(await calender.datePickerValidation()).toContain(Constants.date);
     });
-
 });

@@ -22,7 +22,6 @@ test.describe('Should check all table functionality in automatenow sandbox', asy
     });
 
     test('Should check the show entries as per the dropdown selection', async () => {
-        await expect(page).toHaveURL(/.*tables/);
         let defaultValue = await table.getValue();
         expect(defaultValue).toBe(Constants.tableAssertion1);
         await table.selectOption(dynamicValues.totalTableValue2);

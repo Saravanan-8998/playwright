@@ -1,5 +1,6 @@
-import { Locator, Page } from "@playwright/test";
+import { Locator, Page, expect } from "@playwright/test";
 import { click } from "../support/utils";
+import Constants from "../support/constants.json";
 
 export default class JavaScriptDelays {
     readonly page: Page;
@@ -13,6 +14,7 @@ export default class JavaScriptDelays {
     }
 
     async textValue() {
-        return await this.page.locator(`#delay`).inputValue();
+        let value = await this.page.locator(`#delay`).inputValue();
+        expect(value).toBe(Constants.delayVerification);
     }
 }   

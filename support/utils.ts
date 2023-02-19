@@ -20,7 +20,7 @@ export const check = async (page: Page, nameValue: any) => {
     return await page.getByLabel(`${nameValue}`).isVisible();
 };
 
-export const rollSelect = async (page: Page, role: any, nameValue: any,dropDownValue: any) => {
+export const rollSelect = async (page: Page, role: any, nameValue: any, dropDownValue: any) => {
     return await page.getByRole(role, { name: `${nameValue}` }).selectOption(dropDownValue);
 };
 

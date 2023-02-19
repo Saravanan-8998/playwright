@@ -1,4 +1,5 @@
-import { Locator, Page } from "@playwright/test";
+import { Locator, Page, expect } from "@playwright/test";
+import Constants from "../support/constants.json";
 
 export default class JavaScriptAds {
     readonly page: Page; mainDiv: string; clsDiv: string;
@@ -10,7 +11,8 @@ export default class JavaScriptAds {
     }
 
     async textValue() {
-        return await this.page.locator(this.mainDiv).textContent();
+        let value = await this.page.locator(this.mainDiv).textContent();
+        expect(value).toBe(Constants.adsAssertion);
     }
 
     async closeDiv() {

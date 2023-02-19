@@ -1,4 +1,5 @@
-import { Locator, Page } from "@playwright/test";
+import { Locator, Page, expect } from "@playwright/test";
+import Constants from "../support/constants.json";
 
 export class Spinners {
     readonly page: Page; spinnerLoc: string; textLoc: string;
@@ -9,7 +10,7 @@ export class Spinners {
         this.textLoc = `//div[@class='entry-content']//p[1]`;
     }
 
-    async spinnerAppeared(){
+    async spinnerAppeared() {
         await this.page.pause();
         await this.page.locator(this.spinnerLoc).isVisible();
         await this.page.reload();
@@ -17,7 +18,7 @@ export class Spinners {
         await this.page.locator(this.spinnerLoc).isHidden();
     }
 
-    async textAppeared(){
+    async textAppeared() {
         await this.page.locator(this.textLoc).isVisible();
         return await this.page.locator(this.textLoc).innerText();
     }
