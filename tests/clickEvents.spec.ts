@@ -49,7 +49,4 @@ test.describe('Should check javascript clickEvents in automatenow sandbox', asyn
         }
     });
 
-    test.afterAll(async () => {
-        page.close();
-    })
 });

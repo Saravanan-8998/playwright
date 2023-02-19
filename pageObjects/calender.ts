@@ -1,4 +1,5 @@
 import { Locator, Page } from "@playwright/test";
+import { click } from "../support/utils";
 
 export class Calender {
     readonly page: Page; datePickerLoc: string; datePickerValue: string; nextMonth: string; dateToSelect: any;
@@ -17,18 +18,14 @@ export class Calender {
         await this.page.locator(this.datePickerLoc).click();
         await this.page.locator(this.datePickerLoc).type(date);
         await this.page.locator(this.datePickerLoc).press("Tab");
-        await this.submit();
+        await click(this.page, 'button', 'Submit');
     }
 
-    async manualDateClick(date:any) {
+    async manualDateClick(date: any) {
         await this.page.locator(this.datePickerLoc).click();
         await this.page.locator(this.nextMonth).click();
         await this.page.locator(this.dateToSelect(date)).click();
-        await this.submit();
-    }
-
-    async submit() {
-        await this.page.getByRole('button', { name: 'Submit' }).click();
+        await click(this.page, 'button', 'Submit');
     }
 
     async datePickerValidation() {

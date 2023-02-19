@@ -20,7 +20,4 @@ test.describe('Should check all popup functionality in automatenow sandbox', asy
         expect(expectText).toBe(Constants.spinnerText);
     });
 
-    test.afterAll(async () => {
-        page.close();
-    })
 });

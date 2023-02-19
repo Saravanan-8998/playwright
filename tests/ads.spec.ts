@@ -21,8 +21,4 @@ test.describe('Should check javascript ads in automatenow sandbox', async () => 
         expect(textValue).toBe(Constants.adsAssertion);
         await ads.closeDiv();
     });
-
-    test.afterAll(async () => {
-        page.close();
-    })
 });

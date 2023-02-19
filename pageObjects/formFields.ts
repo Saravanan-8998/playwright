@@ -1,4 +1,6 @@
-import { Locator, Page } from "@playwright/test";
+import { Locator, Page, expect } from "@playwright/test";
+import { click } from "../support/utils";
+import Constants from "../support/constants.json";
 
 export class FormFields {
     readonly page: Page; nameLoc: string; nameInput: string; checkBoxLoc: string; radioLoc: string; dropDownLoc: string; emailLoc: string; messageLoc: string; dropDownYes: string; dropDownNo: string; headerValidation: string; nameValidation: string; checkBoxValidation: string; radioValidation: string; dropDownValidation: string; emailValidation: string; messageValidation: string;
@@ -77,18 +79,18 @@ export class FormFields {
 
     async emailFunction() {
         await this.page.waitForSelector(this.emailLoc);
-        await this.page.getByRole('textbox', { name: 'Email' }).click();
+        await click(this.page, 'textbox', 'Email');
         await this.page.getByRole('textbox', { name: 'Email' }).fill('sarf@gmail.com');
     }
 
     async messageFunction() {
         await this.page.waitForSelector(this.messageLoc);
-        await this.page.getByRole('textbox', { name: 'Message' }).click();
+        await click(this.page, 'textbox', 'Message');
         await this.page.getByRole('textbox', { name: 'Message' }).fill('Testing');
     }
 
     async submit() {
-        await this.page.getByRole('button', { name: 'Submit' }).click();
+        await click(this.page, 'button', 'Submit');
     }
 
     async headerValueValidation() {
@@ -117,5 +119,15 @@ export class FormFields {
 
     async messageValueValidation() {
         return await this.page.locator(this.messageValidation).textContent();
+    }
+
+    async assertionFun() {
+        expect(await this.headerValueValidation()).toBe(Constants.headerValue);
+        expect(await this.nameValueValidation()).toBe(Constants.nameValue);
+        expect(await this.checkBoxValueValidation()).toBe(Constants.checkBoxValue);
+        expect(await this.radioValueValidation()).toBe(Constants.radioValue);
+        expect(await this.dropDownValueValidation()).toBe(Constants.dropDownValue);
+        expect(await this.emailValueValidation()).toBe(Constants.emailValue);
+        expect(await this.messageValueValidation()).toBe(Constants.messageValue);
     }
 }

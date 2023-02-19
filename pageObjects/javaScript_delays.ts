@@ -1,4 +1,5 @@
 import { Locator, Page } from "@playwright/test";
+import { click } from "../support/utils";
 
 export default class JavaScriptDelays {
     readonly page: Page;
@@ -8,11 +9,10 @@ export default class JavaScriptDelays {
     }
 
     async clickOnStart() {
-        return await this.page.getByRole('button', { name: 'Start' }).click();
+        await click(this.page, 'button', 'Start');
     }
 
     async textValue() {
-        let valueOfText = await this.page.locator(`#delay`).inputValue();
-        return valueOfText;
+        return await this.page.locator(`#delay`).inputValue();
     }
 }   

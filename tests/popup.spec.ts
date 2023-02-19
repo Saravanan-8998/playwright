@@ -34,7 +34,4 @@ test.describe('Should check all popup functionality in automatenow sandbox', asy
         await popups.toolTip();
     });
 
-    test.afterAll(async () => {
-        page.close();
-    })
 });

@@ -17,8 +17,4 @@ test.describe('Should check all broken_images functionality in automatenow sandb
         await broken_images.conditionAlt();
         await broken_images.conditionAPI(request);
     });
-
-    test.afterAll(async () => {
-        page.close();
-    })
 });

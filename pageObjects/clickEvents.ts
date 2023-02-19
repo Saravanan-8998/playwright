@@ -1,4 +1,5 @@
 import { Locator, Page } from "@playwright/test";
+import { click } from "../support/utils";
 
 export class ClickEvents {
     readonly page: Page; obj1: string; obj2: string; obj3: string; obj4: string; valueLoc: string;
@@ -16,19 +17,19 @@ export class ClickEvents {
         switch (value) {
             case 1:
                 await this.page.waitForSelector(this.obj1);
-                await this.page.getByRole('button', { name: 'Cat' }).click();
+                await click(this.page, 'button', 'Cat');
                 break;
             case 2:
                 await this.page.waitForSelector(this.obj2);
-                await this.page.getByRole('button', { name: 'Dog' }).click();
+                await click(this.page, 'button', 'Dog');
                 break;
             case 3:
                 await this.page.waitForSelector(this.obj3);
-                await this.page.getByRole('button', { name: 'Pig' }).click();
+                await click(this.page, 'button', 'Pig');
                 break;
             case 4:
                 await this.page.waitForSelector(this.obj4);
-                await this.page.getByRole('button', { name: 'Cow' }).click();
+                await click(this.page, 'button', 'Cow');;
                 break;
             default:
                 console.log("None of the objects are selected");

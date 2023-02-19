@@ -21,7 +21,4 @@ test.describe('Should check slider function in automatenow sandbox', async () =>
         expect(movedValue).toContain(currentSliderValue);
     });
 
-    test.afterAll(async () => {
-        page.close();
-    })
 });

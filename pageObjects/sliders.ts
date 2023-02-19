@@ -14,8 +14,7 @@ export class Slider {
     }
 
     async getSliderValue() {
-        let sliderValue = await this.page.locator(this.sliderId).innerText();
-        return sliderValue;
+        return await this.page.locator(this.sliderId).innerText();
     }
 
     async moveSlider(slider: any, sliderData: any) {

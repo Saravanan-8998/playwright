@@ -48,7 +48,4 @@ test.describe('Should check all table functionality in automatenow sandbox', asy
         }
     });
 
-    test.afterAll(async () => {
-        page.close();
-    })
 });

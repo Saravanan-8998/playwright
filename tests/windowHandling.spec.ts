@@ -43,7 +43,4 @@ test.describe('Should check all Window Handling functionality in automatenow san
         await expect(page).toHaveURL(/.*google/);
     });
 
-    test.afterAll(async () => {
-        page.close();
-    })
 });

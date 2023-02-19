@@ -22,7 +22,4 @@ test.describe('Should check javascript delay in automatenow sandbox', async () =
         expect(textValue).toBe(Constants.delayVerification);
     });
 
-    test.afterAll(async () => {
-        page.close();
-    })
 });
