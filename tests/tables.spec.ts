@@ -2,6 +2,7 @@ import { expect, test, Page } from "@playwright/test";
 import { Tables } from "../pageObjects/tables";
 import subURL from "../support/subURL.json";
 import Constants from "../support/constants.json";
+import { myBrowserFixture } from "../support/fixtures";
 
 let page: Page;
 let table: Tables;
@@ -16,7 +17,7 @@ enum dynamicValues {
 test.describe('Should check all table functionality in automatenow sandbox', async () => {
 
     test.beforeAll(async ({ browser }) => {
-        page = await browser.newPage();
+        page = (await myBrowserFixture()).page;
         await page.goto(subURL.tables);
         table = new Tables(page);
         const title = await page.title();
@@ -24,6 +25,7 @@ test.describe('Should check all table functionality in automatenow sandbox', asy
     });
 
     test('Should check the show entries as per the dropdown selection', async () => {
+        await expect(page).toHaveURL(/.*tables/);
         let defaultValue = await table.getValue();
         expect(defaultValue).toBe(Constants.tableAssertion1);
         await table.selectOption(dynamicValues.totalTableValue2);
@@ -42,11 +44,7 @@ test.describe('Should check all table functionality in automatenow sandbox', asy
         await table.scrollDown();
         await table.clickSearchBtn();
         await table.enterSearch(Constants.searchValue);
-        const tableRows = await table.searchByValue(Constants.searchValue);
-        for await (const tableRow of tableRows) {
-            let allRowData = await tableRow.innerText();
-            expect(allRowData).toContain(Constants.searchValueAssertion);
-        }
+        await table.searchByValue(Constants.searchValue);
     });
 
 });

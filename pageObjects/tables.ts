@@ -1,5 +1,6 @@
-import { Locator, Page } from "@playwright/test";
+import { Locator,expect, Page } from "@playwright/test";
 import { rollSelect, labelClick, type } from "../support/utils";
+import Constants from "../support/constants.json";
 
 export class Tables {
     readonly page: Page; currentValue: string; defaultRankValue: string; defaultSort: string; ascSort: string; descSort: string; searchLoc: string; scrollId: string;
@@ -51,6 +52,10 @@ export class Tables {
     }
 
     async searchByValue(value: any) {
-        return await this.page.$$(`tr:has-text('${value}')`);
+        let values = await this.page.$$(`tr:has-text('${value}')`);
+        for await (const tableRow of values) {
+            let allRowData = await tableRow.innerText();
+            expect(allRowData).toContain(Constants.searchValueAssertion);
+        }
     }
 }

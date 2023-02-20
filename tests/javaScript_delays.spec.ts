@@ -1,6 +1,7 @@
 import { expect, test, Page } from "@playwright/test";
 import JavaScriptDelays from "../pageObjects/javaScript_delays";
 import subURL from "../support/subURL.json";
+import { myBrowserFixture } from "../support/fixtures";
 
 let page: Page;
 
@@ -8,7 +9,7 @@ test.describe('Should check javascript delay in automatenow sandbox', async () =
     let javascriptDelay: JavaScriptDelays;
 
     test.beforeAll(async ({ browser }) => {
-        page = await browser.newPage();
+        page = (await myBrowserFixture()).page;
         await page.goto(subURL.delays);
         javascriptDelay = new JavaScriptDelays(page);
         const title = await page.title();

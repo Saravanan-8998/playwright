@@ -1,6 +1,7 @@
 import { expect, test, Page } from "@playwright/test";
 import { Popups } from "../pageObjects/popup";
 import subURL from "../support/subURL.json";
+import { myBrowserFixture } from "../support/fixtures";
 
 let page: Page;
 let popups: Popups;
@@ -8,7 +9,7 @@ let popups: Popups;
 test.describe('Should check all popup functionality in automatenow sandbox', async () => {
 
     test.beforeAll(async ({ browser }) => {
-        page = await browser.newPage();
+        page = (await myBrowserFixture()).page;
         await page.goto(subURL.popup);
         popups = new Popups(page);
         const title = await page.title();

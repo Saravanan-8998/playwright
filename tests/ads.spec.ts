@@ -3,13 +3,13 @@ import Ads from "../pageObjects/ads";
 import subURL from "../support/subURL.json";
 import { myBrowserFixture } from "../support/fixtures";
 
-let page: Page;
+let ads: Ads;
+let page: any;
 
 test.describe('Should check javascript ads in automatenow sandbox', async () => {
-    let ads: Ads;
 
     test.beforeAll(async ({ browser }) => {
-        page = await browser.newPage();
+        page = (await myBrowserFixture()).page;
         await page.goto(subURL.ads);
         ads = new Ads(page);
         const title = await page.title();
