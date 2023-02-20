@@ -29,6 +29,7 @@
     "afterDeclineMsg": "Cancel it is!",
     "alertPromptMsg": "Hi there, what's your name?",
     "afterPromptDeclineMsg": "Fine, be that way...",
-    "tooltipMsg": "Cool text"
+    "tooltipMsg": "Cool text",
+    "searchBoxValue" : [{ "searchValue": "Cypress" }, { "searchValue": "JMeter" }, { "searchValue": "Selenium" }, { "searchValue": "Hamcrest" }]
 }
     

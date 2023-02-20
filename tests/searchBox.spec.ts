@@ -2,12 +2,12 @@ import { expect, test, Page } from "@playwright/test";
 import { SearchBox } from "../pageObjects/searchBox";
 import subURL from "../support/subURL.json";
 import { myBrowserFixture } from "../support/fixtures";
+import Constants from "../support/constants.json";
 
 let page: Page;
 
 test.describe('Should check javascript searchBox in automatenow sandbox', async () => {
     let searchBox: SearchBox;
-    const searchBoxValue = [{ searchValue: "Cypress" }, { searchValue: "JMeter" }, { searchValue: "Selenium" }, { searchValue: "Hamcrest" }]
 
     test.beforeAll(async ({ browser }) => {
         page = (await myBrowserFixture()).page;
@@ -17,7 +17,7 @@ test.describe('Should check javascript searchBox in automatenow sandbox', async 
         console.log(`Page title: ${title}`);
     });
 
-    searchBoxValue.forEach(option => {
+    Constants.searchBoxValue.forEach(option => {
         test(`Searching with ${option.searchValue}`, async () => {
             await expect(page).toHaveURL(/.*search-box/);
             await searchBox.searchWithValue(`${option.searchValue}`);
