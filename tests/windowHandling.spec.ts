@@ -2,6 +2,7 @@ import { chromium, expect, test, Page } from "@playwright/test";
 import { WindowHandling } from "../pageObjects/windowHandling";
 import subURL from "../support/subURL.json";
 import Constants from "../support/constants.json";
+import ENV from "../support/env";
 
 let page: Page;
 let browser: any, context: any;
@@ -25,7 +26,7 @@ test.describe('Should check all Window Handling functionality in automatenow san
         await windowHandling.clickNewTab();
         const pagePromise = context.waitForEvent('page');
         const newPage = await pagePromise;
-        await newPage.fill(searchLocator, Constants.searchText);
+        await newPage.fill(ENV.SEARCHLOC, Constants.searchText);
         await newPage.keyboard.press('Enter');
         await expect(newPage).toHaveURL(/.*Typescript/);
     });

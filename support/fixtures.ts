@@ -1,4 +1,4 @@
-import { chromium, Browser, BrowserContext, Page } from '@playwright/test';
+import { chromium, Browser, Page } from '@playwright/test';
 
 const browserContext = async (): Promise<{ browser: Browser, page: Page }> => {
     let browser = await chromium.launch();
