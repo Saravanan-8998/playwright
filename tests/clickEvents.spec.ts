@@ -4,7 +4,6 @@ import subURL from "../support/subURL.json";
 import { myBrowserFixture } from "../support/fixtures";
 
 let page: Page;
-let userObject: any = [];
 
 test.describe('Should check javascript clickEvents in automatenow sandbox', async () => {
     let clickEvents: ClickEvents;

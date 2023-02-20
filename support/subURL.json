@@ -9,5 +9,6 @@
     "window_handling" : "/sandbox-automation-testing-practice-website/window-operations/",
     "broken_images" : "/sandbox-automation-testing-practice-website/broken-images/",
     "spinners" : "/sandbox-automation-testing-practice-website/spinners/",
-    "popup" : "/sandbox-automation-testing-practice-website/popups/"
+    "popup" : "/sandbox-automation-testing-practice-website/popups/",
+    "search_box" : "/sandbox-automation-testing-practice-website/search-box/"
 }
