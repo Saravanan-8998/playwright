@@ -8,7 +8,7 @@ let page: Page;
 test.describe('Should check javascript clickEvents in automatenow sandbox', async () => {
     let clickEvents: ClickEvents;
 
-    test.beforeAll(async ({ browser }) => {
+    test.beforeAll(async () => {
         page = (await myBrowserFixture()).page;
         await page.goto(subURL.clickEvents);
         clickEvents = new ClickEvents(page);

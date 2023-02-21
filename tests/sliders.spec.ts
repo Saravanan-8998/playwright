@@ -9,7 +9,7 @@ let page: Page;
 test.describe('Should check slider function in automatenow sandbox', async () => {
     let slider: Slider;
 
-    test.beforeAll(async ({ browser }) => {
+    test.beforeAll(async () => {
         page = (await myBrowserFixture()).page;
         await page.goto(subURL.sliders);
         slider = new Slider(page);

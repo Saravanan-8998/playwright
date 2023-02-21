@@ -8,7 +8,7 @@ let formFields: FormFields;
 
 test.describe('Should check all form fields functionality in automatenow sandbox', async () => {
 
-    test.beforeAll(async ({ browser }) => {
+    test.beforeAll(async () => {
         page = (await myBrowserFixture()).page;
         await page.goto(subURL.formFields);
         formFields = new FormFields(page);

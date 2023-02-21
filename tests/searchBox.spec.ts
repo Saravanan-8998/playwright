@@ -9,7 +9,7 @@ let page: Page;
 test.describe('Should check javascript searchBox in automatenow sandbox', async () => {
     let searchBox: SearchBox;
 
-    test.beforeAll(async ({ browser }) => {
+    test.beforeAll(async () => {
         page = (await myBrowserFixture()).page;
         await page.goto(subURL.search_box);
         searchBox = new SearchBox(page);

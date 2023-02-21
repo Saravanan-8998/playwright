@@ -8,7 +8,7 @@ let broken_images: BrokenImages;
 
 test.describe('Should check all broken_images functionality in automatenow sandbox', async () => {
 
-    test.beforeAll(async ({ browser }) => {
+    test.beforeAll(async () => {
         page = (await myBrowserFixture()).page;
         await page.goto(subURL.broken_images);
         broken_images = new BrokenImages(page);

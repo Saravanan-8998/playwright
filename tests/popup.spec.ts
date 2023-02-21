@@ -8,7 +8,7 @@ let popups: Popups;
 
 test.describe('Should check all popup functionality in automatenow sandbox', async () => {
 
-    test.beforeAll(async ({ browser }) => {
+    test.beforeAll(async () => {
         page = (await myBrowserFixture()).page;
         await page.goto(subURL.popup);
         popups = new Popups(page);

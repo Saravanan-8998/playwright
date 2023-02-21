@@ -9,7 +9,7 @@ let page: Page;
 let calender: Calender;
 let inputDate: string = moment().add(1, 'day').format("MMMM DD, YYYY");
 
-test.beforeAll(async ({ browser }) => {
+test.beforeAll(async () => {
     page = (await myBrowserFixture()).page;
     await page.goto(subURL.calender);
     calender = new Calender(page);

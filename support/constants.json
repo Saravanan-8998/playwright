@@ -31,6 +31,8 @@
     "afterPromptDeclineMsg": "Fine, be that way...",
     "tooltipMsg": "Cool text",
     "searchBoxValue" : [{ "searchValue": "Cypress" }, { "searchValue": "JMeter" }, { "searchValue": "Selenium" }, { "searchValue": "Hamcrest" }],
-    "simpleValue" : "Hi, I’m a simple modal."
+    "simpleValue" : "Hi, I’m a simple modal.",
+    "hoverExpect" : "You did it!",
+    "defaultHoverExpect" : "Mouse over me"
 }
     

@@ -8,7 +8,7 @@ let page: Page;
 test.describe('Should check javascript delay in automatenow sandbox', async () => {
     let javascriptDelay: JavaScriptDelays;
 
-    test.beforeAll(async ({ browser }) => {
+    test.beforeAll(async () => {
         page = (await myBrowserFixture()).page;
         await page.goto(subURL.delays);
         javascriptDelay = new JavaScriptDelays(page);
