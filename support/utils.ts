@@ -24,6 +24,10 @@ export const rollSelect = async (page: Page, role: any, nameValue: any, dropDown
     return await page.getByRole(role, { name: `${nameValue}` }).selectOption(dropDownValue);
 };
 
+export const rollTrue = async (page: Page, role: any, nameValue: any) => {
+    return await page.getByRole(role, { name: nameValue, exact: true }).click();
+};
+
 export const type = async (page: Page, name: any, typeValue: any) => {
     return await page.getByLabel(name).type(typeValue);
 };

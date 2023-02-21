@@ -1,9 +1,7 @@
 import { expect, Locator, Page } from "@playwright/test";
 
 export class SearchBox {
-    readonly page: Page;
-    readonly searchInput: string;
-    readonly searchBtn: string;
+    readonly page: Page; searchInput: string; searchBtn: string;
 
     constructor(page: Page) {
         this.page = page;

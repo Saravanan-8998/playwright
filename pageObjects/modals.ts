@@ -3,8 +3,7 @@ import { click, labelClick, labelFill } from "../support/utils";
 import Constants from "../support/constants.json";
 
 export class Modals {
-    readonly page: Page;
-    readonly simpleText: string;
+    readonly page: Page; simpleText: string;
 
     constructor(page: Page) {
         this.page = page;
