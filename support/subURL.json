@@ -13,5 +13,6 @@
     "search_box" : "/sandbox-automation-testing-practice-website/search-box/",
     "modals" : "/sandbox-automation-testing-practice-website/modals/",
     "hover" : "/sandbox-automation-testing-practice-website/hover/",
-    "fileDownload" : "/sandbox-automation-testing-practice-website/file-download/"
+    "fileDownload" : "/sandbox-automation-testing-practice-website/file-download/",
+    "fileUpload" : "/sandbox-automation-testing-practice-website/file-upload/"
 }

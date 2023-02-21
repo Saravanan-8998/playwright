@@ -36,6 +36,9 @@
     "defaultHoverExpect" : "Mouse over me",
     "pdfText" : "Sandbox Download Form - .pdf",
     "docxText" : "Sandbox Download Form - .docx",
-    "docxPassword" : "automateNow"
+    "docxPassword" : "automateNow",
+    "fileLocation" : "file:///C:/Users/saravanan.s/Downloads/test.pdf",
+    "fileUploadName" : "test.pdf",
+    "fileUploadMsg" : "File upload complete"
 }
     
