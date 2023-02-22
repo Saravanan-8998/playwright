@@ -1,25 +1,21 @@
-import { Locator, Page } from "@playwright/test";
+import {expect,  Locator, Page } from "@playwright/test";
 import { click } from "../support/utils";
 
 export class BrokenLinks {
-    readonly page: Page;
+    readonly page: Page; brokenImg: string;
 
     constructor(page: Page) {
         this.page = page;
+        this.brokenImg = `.icon.icon-generic`;
     }
 
-    async manualDateEnter() {
-       
+    async clickBrokenLink() {
+        await click(this.page, 'link', 'Click me');
     }
 
-    async manualDateClick() {
-        await this.page.locator(this.datePickerLoc).click();
-        await this.page.locator(this.nextMonth).click();
-        await this.page.locator(this.dateToSelect(date)).click();
-        await click(this.page, 'button', 'Submit');
-    }
-
-    async datePickerValidation() {
-        return await this.page.locator(this.datePickerValue).innerText();
+    async checkPage(){
+        await expect(this.page).toHaveURL(/.*/);
+        await this.page.waitForTimeout(2000);
+        await this.page.locator(this.brokenImg).isVisible();
     }
 }
