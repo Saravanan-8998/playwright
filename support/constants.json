@@ -40,6 +40,11 @@
     "fileLocation" : "file:///C:/Users/saravanan.s/Downloads/test.pdf",
     "fileUploadName" : "test.pdf",
     "fileUploadMsg" : "File upload complete",
-    "accordions" : "This is an accordion item."
+    "accordions" : "This is an accordion item.",
+    "carouselImg1" : "Cypress Logo | Cypress.io Logo | Cypress Automation Tool Logo",
+    "carouselImg2" : "Cypress vs selenium | Cypress vs Selenium architecture | Cypress vs Selenium Side by Side",
+    "carouselImg3" : "automateNow YouTube Channel | automate now YouTube",
+    "carouselImg4" : "What Is Headless Chrome | What Does Headless Chrome Mean",
+    "carouselImg5" : "GitHub Logo | Sourcetree Logo | GitHub and Sourcetree"
 }
     
