@@ -17,5 +17,6 @@
     "fileUpload" : "/sandbox-automation-testing-practice-website/file-upload/",
     "brokenLinks" : "/sandbox-automation-testing-practice-website/broken-links/",
     "accordions" : "/sandbox-automation-testing-practice-website/accordions/",
-    "carousel" : "/sandbox-automation-testing-practice-website/carousel/"
+    "carousel" : "/sandbox-automation-testing-practice-website/carousel/",
+    "iframes" : "/sandbox-automation-testing-practice-website/iframes/"
 }
