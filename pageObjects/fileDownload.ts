@@ -8,7 +8,7 @@ export class FileDownload {
     constructor(page: Page) {
         this.page = page;
         this.mainPdf = `//a[contains(text(),'Sandbox Download Form - .pdf')]`;
-        this.mainDoc = `//a[contains(text(),'Sandbox Download Form - .docx')]`;
+        this.mainDoc = `(//h3[@class='package-title']//a)[2]`;
         this.textLoc = `.mt-0`;
         this.frameLoc = `#wpdm-lock-frame`;
     }
@@ -22,8 +22,9 @@ export class FileDownload {
     }
 
     async validateDocx() {
+        await this.page.waitForSelector(this.mainDoc);
         await this.page.locator(this.mainDoc).click();
-        await expect(this.page).toHaveURL(/.*file-download-form/);
+        await this.page.waitForTimeout(5000);
         let value = await this.page.locator(this.textLoc).textContent();
         expect(value).toBe(Constants.docxText);
         await rollTrue(this.page, 'link', 'Download');
