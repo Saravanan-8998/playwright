@@ -39,6 +39,7 @@
     "docxPassword" : "automateNow",
     "fileLocation" : "file:///C:/Users/saravanan.s/Downloads/test.pdf",
     "fileUploadName" : "test.pdf",
-    "fileUploadMsg" : "File upload complete"
+    "fileUploadMsg" : "File upload complete",
+    "accordions" : "This is an accordion item."
 }
     
