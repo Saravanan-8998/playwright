@@ -1,9 +1,7 @@
 import { Locator, Page, expect } from "@playwright/test";
-import Constants from "../support/constants.json";
 
 export default class Iframes {
-    readonly page: Page; parentFrame: string; childFrame: string; nglogin: string; emailinputbox: string; btnsubmmit: string; fname: string; lname: string; password: string; ngmenu: string; menutext: string; animalpagetitle: string; newsletter: string; newslettertitle: string; ngsearch: string; ngsearchinput: string; valueContainer: string;
-    readonly valueSearch: string;
+    readonly page: Page; parentFrame: string; childFrame: string; nglogin: string; emailinputbox: string; btnsubmmit: string; fname: string; lname: string; password: string; ngmenu: string; menutext: string; animalpagetitle: string; newsletter: string; newslettertitle: string; ngsearch: string; ngsearchinput: string; valueContainer: string; valueSearch: string;
 
     constructor(page: Page) {
         this.page = page;
@@ -15,7 +13,7 @@ export default class Iframes {
         this.fname = '#InputFirstName';
         this.lname = '#InputLastName';
         this.password = '#password-new';
-        this.ngmenu = ".Button.Button--default.Button--icon";
+        this.ngmenu = "//button[@aria-label='Menu']";
         this.menutext = "//a[@class='AnchorLink MenuModal__Content__List__Item--primarylink'][text()='Animals']";
         this.animalpagetitle = '.BannerHeading__Title h1';
         this.newsletter = "//a[text()='Newsletters']";
@@ -31,31 +29,18 @@ export default class Iframes {
 
     async childFrameElement() {
         let parentFrame = await this.parentFrameElement();
-        const childFrame = parentFrame.frameLocator(this.childFrame);
-        return childFrame;
+        return parentFrame.frameLocator(this.childFrame);
     }
 
     async login() {
-        await this.page.reload();
         let parentFrame = await this.parentFrameElement();
         await parentFrame.locator(this.nglogin).click();
     }
 
-    // async subscribe() {
-    //     await this.page.waitForTimeout(10000);
-    //     let childFrame = await this.childFrameElement();
-    //     await childFrame.locator(this.emailinputbox).fill(Constants.email);
-    //     await childFrame.locator(this.btnsubmmit).click();
-    //     await childFrame.locator(this.fname).fill(Constants.Fname);
-    //     await childFrame.locator(this.lname).fill(Constants.Lname);
-    //     await childFrame.locator(this.password).fill(Constants.Password);
-    //     await childFrame.locator(this.btnsubmmit).click();
-    // }
-
     async menuSelect() {
         let parentFrame = await this.parentFrameElement();
-        await this.page.locator(this.ngmenu).click();
-        await this.page.locator(this.menutext).click();
+        await parentFrame.locator(this.ngmenu).click();
+        await parentFrame.locator(this.menutext).click();
         const animalTitle = await parentFrame.locator(this.animalpagetitle).textContent();
         expect(animalTitle).toEqual("Animals");
     }
@@ -76,15 +61,13 @@ export default class Iframes {
     }
 
     async mainFunction() {
-        await this.page.waitForTimeout(6000);
+        await this.page.reload();
         await this.login();
-        // await this.page.waitForTimeout(6000);
-        // await this.subscribe();
-        await this.page.waitForTimeout(6000);
-        await this.menuSelect();
-        await this.page.waitForTimeout(6000);
-        await this.newsSelect();
-        await this.page.waitForTimeout(6000);
+        await this.page.reload();
         await this.searchSelect();
+        await this.page.reload();
+        await this.newsSelect();
+        await this.page.reload();
+        await this.menuSelect();
     }
 }
