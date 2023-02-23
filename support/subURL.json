@@ -18,5 +18,6 @@
     "brokenLinks" : "/sandbox-automation-testing-practice-website/broken-links/",
     "accordions" : "/sandbox-automation-testing-practice-website/accordions/",
     "carousel" : "/sandbox-automation-testing-practice-website/carousel/",
-    "iframes" : "/sandbox-automation-testing-practice-website/iframes/"
+    "iframes" : "/sandbox-automation-testing-practice-website/iframes/",
+    "gestures" : "/sandbox-automation-testing-practice-website/gestures/"
 }
