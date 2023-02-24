@@ -1,7 +1,7 @@
 import { Locator, Page, expect } from "@playwright/test";
 import Constants from "../support/constants.json";
 
-export default class JavaScriptAds {
+export class JavaScriptAds {
     readonly page: Page; mainDiv: string; clsDiv: string;
 
     constructor(page: Page) {

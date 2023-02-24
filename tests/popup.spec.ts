@@ -44,3 +44,7 @@ test.describe('Should check prompt popup and tooltip functionality in automateno
         await page.close();
     });
 });
+
+test.afterEach(async () => {
+    await page.close();
+});

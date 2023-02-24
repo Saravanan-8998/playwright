@@ -9,19 +9,18 @@ let browser: any, context: any;
 let windowHandling: WindowHandling;
 let searchLocator: string = `input[name='q']`;
 
+test.beforeEach(async () => {
+    browser = await chromium.launch();
+    context = await browser.newContext();
+    page = await context.newPage();
+    await page.goto(subURL.window_handling);
+    await page.waitForTimeout(10000);
+    windowHandling = new WindowHandling(page);
+    const title = await page.title();
+    console.log(`Page title: ${title}`);
+});
+
 test.describe('Should check all Window Handling functionality in automatenow sandbox', async () => {
-
-    test.beforeAll(async () => {
-        browser = await chromium.launch();
-        context = await browser.newContext();
-        page = await context.newPage();
-        await page.goto(subURL.window_handling);
-        await page.waitForTimeout(10000);
-        windowHandling = new WindowHandling(page);
-        const title = await page.title();
-        console.log(`Page title: ${title}`);
-    });
-
     test('Should check the new tab functionality', async () => {
         await windowHandling.clickNewTab();
         const pagePromise = context.waitForEvent('page');
@@ -45,5 +44,8 @@ test.describe('Should check all Window Handling functionality in automatenow san
         await windowHandling.clickreplacebtn();
         await expect(page).toHaveURL(/.*google/);
     });
+});
 
+test.afterEach(async () => {
+    await page.close();
 });

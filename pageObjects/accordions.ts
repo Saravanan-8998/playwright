@@ -1,7 +1,7 @@
 import { Locator, Page, expect } from "@playwright/test";
 import Constants from "../support/constants.json";
 
-export default class Accordions {
+export class Accordions {
     readonly page: Page; clickLoc: string; textLoc: string;
 
     constructor(page: Page) {

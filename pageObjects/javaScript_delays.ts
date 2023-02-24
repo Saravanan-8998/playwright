@@ -2,7 +2,7 @@ import { Locator, Page, expect } from "@playwright/test";
 import { click } from "../support/utils";
 import Constants from "../support/constants.json";
 
-export default class JavaScriptDelays {
+export class JavaScriptDelays {
     readonly page: Page;
 
     constructor(page: Page) {

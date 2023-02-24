@@ -6,19 +6,22 @@ import { myBrowserFixture } from "../support/fixtures";
 let page: Page;
 let carousel: Carousel;
 
+test.beforeEach(async () => {
+    page = (await myBrowserFixture()).page;
+    await page.goto(subURL.carousel);
+    carousel = new Carousel(page);
+    const title = await page.title();
+    console.log(`Page title: ${title}`);
+});
+
 test.describe('Should check all carousel functionality in automatenow sandbox', async () => {
-
-    test.beforeAll(async () => {
-        page = (await myBrowserFixture()).page;
-        await page.goto(subURL.carousel);
-        carousel = new Carousel(page);
-        const title = await page.title();
-        console.log(`Page title: ${title}`);
-    });
-
     test("Test to check carousel functionality", async ({ request }) => {
         await expect(page).toHaveURL(/.*carousel/);
         await carousel.checkAllCarouselFunctionality();
         await page.close();
     });
+});
+
+test.afterEach(async () =>{
+    await page.close();
 });

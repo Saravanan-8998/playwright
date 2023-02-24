@@ -1,4 +1,4 @@
-import { Locator,expect, Page } from "@playwright/test";
+import { Locator, expect, Page } from "@playwright/test";
 import { rollSelect, labelClick, type } from "../support/utils";
 import Constants from "../support/constants.json";
 

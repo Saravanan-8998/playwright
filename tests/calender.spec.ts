@@ -9,7 +9,7 @@ let page: Page;
 let calender: Calender;
 let inputDate: string = moment().add(1, 'day').format("MMMM DD, YYYY");
 
-test.beforeAll(async () => {
+test.beforeEach(async () => {
     page = (await myBrowserFixture()).page;
     await page.goto(subURL.calender);
     calender = new Calender(page);
@@ -18,7 +18,6 @@ test.beforeAll(async () => {
 });
 
 test.describe('should check valid date in automatenow sandbox', async () => {
-
     test('Should check for a valid date of a calendar', async () => {
         await expect(page).toHaveURL(/.*calendars/);
         await calender.manualDateEnter(inputDate);
@@ -27,4 +26,8 @@ test.describe('should check valid date in automatenow sandbox', async () => {
         await calender.manualDateClick(Constants.date);
         expect(await calender.datePickerValidation()).toContain(Constants.date);
     });
+});
+
+test.afterEach(async () =>{
+    await page.close();
 });

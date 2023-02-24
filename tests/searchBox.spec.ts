@@ -5,18 +5,17 @@ import { myBrowserFixture } from "../support/fixtures";
 import Constants from "../support/constants.json";
 
 let page: Page;
+let searchBox: SearchBox;
+
+test.beforeEach(async () => {
+    page = (await myBrowserFixture()).page;
+    await page.goto(subURL.search_box);
+    searchBox = new SearchBox(page);
+    const title = await page.title();
+    console.log(`Page title: ${title}`);
+});
 
 test.describe('Should check javascript searchBox in automatenow sandbox', async () => {
-    let searchBox: SearchBox;
-
-    test.beforeAll(async () => {
-        page = (await myBrowserFixture()).page;
-        await page.goto(subURL.search_box);
-        searchBox = new SearchBox(page);
-        const title = await page.title();
-        console.log(`Page title: ${title}`);
-    });
-
     Constants.searchBoxValue.forEach(option => {
         test(`Searching with ${option.searchValue}`, async () => {
             await expect(page).toHaveURL(/.*search-box/);
@@ -26,4 +25,8 @@ test.describe('Should check javascript searchBox in automatenow sandbox', async 
             await page.reload();
         });
     });
+});
+
+test.afterEach(async () => {
+    await page.close();
 });

@@ -1,21 +1,20 @@
 import { expect, test, Page } from "@playwright/test";
-import Ads from "../pageObjects/ads";
+import { JavaScriptAds } from "../pageObjects/ads";
 import subURL from "../support/subURL.json";
 import { myBrowserFixture } from "../support/fixtures";
 
-let ads: Ads;
+let ads: JavaScriptAds;
 let page: any;
 
+test.beforeEach(async () => {
+    page = (await myBrowserFixture()).page;
+    await page.goto(subURL.ads);
+    ads = new JavaScriptAds(page);
+    const title = await page.title();
+    console.log(`Page title: ${title}`);
+});
+
 test.describe('Should check javascript ads in automatenow sandbox', async () => {
-
-    test.beforeAll(async () => {
-        page = (await myBrowserFixture()).page;
-        await page.goto(subURL.ads);
-        ads = new Ads(page);
-        const title = await page.title();
-        console.log(`Page title: ${title}`);
-    });
-
     test('Should wait for the Ads to load and verify the add content', async () => {
         await expect(page).toHaveURL(/.*ads/);
         await page.evaluateHandle(() => document.body);
@@ -23,4 +22,8 @@ test.describe('Should check javascript ads in automatenow sandbox', async () => 
         await ads.textValue();
         await ads.closeDiv();
     });
+});
+
+test.afterEach(async () => {
+    await page.close();
 });

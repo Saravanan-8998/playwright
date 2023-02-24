@@ -1,5 +1,4 @@
 import { Locator, Page, expect } from "@playwright/test";
-import Constants from "../support/constants.json";
 
 export class Spinners {
     readonly page: Page; spinnerLoc: string; textLoc: string;

@@ -14,16 +14,15 @@ enum dynamicValues {
     totalTableValue4 = "100",
 }
 
+test.beforeEach(async () => {
+    page = (await myBrowserFixture()).page;
+    await page.goto(subURL.tables);
+    table = new Tables(page);
+    const title = await page.title();
+    console.log(`Page title: ${title}`);
+});
+
 test.describe('Should check all table functionality in automatenow sandbox', async () => {
-
-    test.beforeAll(async () => {
-        page = (await myBrowserFixture()).page;
-        await page.goto(subURL.tables);
-        table = new Tables(page);
-        const title = await page.title();
-        console.log(`Page title: ${title}`);
-    });
-
     test('Should check the show entries as per the dropdown selection', async () => {
         await expect(page).toHaveURL(/.*tables/);
         let defaultValue = await table.getValue();
@@ -46,5 +45,8 @@ test.describe('Should check all table functionality in automatenow sandbox', asy
         await table.enterSearch(Constants.searchValue);
         await table.searchByValue(Constants.searchValue);
     });
+});
 
+test.afterEach(async () => {
+    await page.close();
 });

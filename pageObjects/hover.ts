@@ -1,7 +1,7 @@
 import { Locator, Page, expect } from "@playwright/test";
 import Constants from "../support/constants.json";
 
-export default class JavaScriptAds {
+export class Hover {
     readonly page: Page; hoverLoc: string;
 
     constructor(page: Page) {

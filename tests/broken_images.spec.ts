@@ -6,19 +6,22 @@ import { myBrowserFixture } from "../support/fixtures";
 let page: Page;
 let broken_images: BrokenImages;
 
+test.beforeAll(async () => {
+    page = (await myBrowserFixture()).page;
+    await page.goto(subURL.broken_images);
+    broken_images = new BrokenImages(page);
+    const title = await page.title();
+    console.log(`Page title: ${title}`);
+});
+
 test.describe('Should check all broken_images functionality in automatenow sandbox', async () => {
-
-    test.beforeAll(async () => {
-        page = (await myBrowserFixture()).page;
-        await page.goto(subURL.broken_images);
-        broken_images = new BrokenImages(page);
-        const title = await page.title();
-        console.log(`Page title: ${title}`);
-    });
-
     test("Test to check for broken images", async ({ request }) => {
         await expect(page).toHaveURL(/.*broken-images/);
         await broken_images.conditionAlt();
         await broken_images.conditionAPI(request);
     });
+});
+
+test.afterEach(async () =>{
+    await page.close();
 });

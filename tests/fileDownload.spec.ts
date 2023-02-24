@@ -15,7 +15,6 @@ test.beforeEach(async () => {
 });
 
 test.describe('Should check fileDownload in automatenow sandbox', async () => {
-
     test('Should check the pdf content and download the pdf', async () => {
         await expect(page).toHaveURL(/.*file-download/);
         await fileDownload.validatePDF();
@@ -27,4 +26,8 @@ test.describe('Should check fileDownload in automatenow sandbox', async () => {
         await fileDownload.validateDocx();
         await page.close();
     });
+});
+
+test.afterEach(async () =>{
+    await page.close();
 });

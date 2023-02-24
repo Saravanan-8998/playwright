@@ -6,16 +6,15 @@ import { myBrowserFixture } from "../support/fixtures";
 let page: Page;
 let gestures: Gestures;
 
+test.beforeEach(async () => {
+    page = (await myBrowserFixture()).page;
+    await page.goto(subURL.gestures);
+    gestures = new Gestures(page);
+    const title = await page.title();
+    console.log(`Page title: ${title}`);
+});
+
 test.describe('Should check all gestures functionality in automatenow sandbox', async () => {
-
-    test.beforeAll(async () => {
-        page = (await myBrowserFixture()).page;
-        await page.goto(subURL.gestures);
-        gestures = new Gestures(page);
-        const title = await page.title();
-        console.log(`Page title: ${title}`);
-    });
-
     test('Should drag a component to a destination', async () => {
         await expect(page).toHaveURL(/.*gestures/);
         await gestures.dragElementToFormArea();
@@ -30,4 +29,8 @@ test.describe('Should check all gestures functionality in automatenow sandbox', 
         await expect(page).toHaveURL(/.*gestures/);
         await gestures.mapFunctions();
     });
+});
+
+test.afterEach(async () =>{
+    await page.close();
 });

@@ -1,6 +1,6 @@
 import { Locator, Page, expect } from "@playwright/test";
 
-export default class Iframes {
+export class Iframes {
     readonly page: Page; parentFrame: string; childFrame: string; nglogin: string; emailinputbox: string; btnsubmmit: string; fname: string; lname: string; password: string; ngmenu: string; menutext: string; animalpagetitle: string; newsletter: string; newslettertitle: string; ngsearch: string; ngsearchinput: string; valueContainer: string; valueSearch: string;
 
     constructor(page: Page) {
